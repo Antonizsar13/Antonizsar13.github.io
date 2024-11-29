@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра Сапер</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<h2>Игра Сапер</h2>
+
+<div class="menu">
+    <button id="view-past-games" onclick="loadPastGames()">Просмотр прошлых игр</button>
+    <button id="clear-db" onclick="clearDatabase()">Очистить базу данных</button>
+    <ul id="game-list"></ul>
+</div>
+
+<div class="settings">
+    <label for="player-name">Имя игрока:</label>
+    <input type="text" id="player-name" placeholder="Введите ваше имя" required>
+    <label for="width">Размер:</label>
+    <input type="number" id="size" value="10" min="5" max="30">
+    <label for="mines">Мины:</label>
+    <input type="number" id="mines" value="10" min="1" max="100">
+    <button id="startBtn">Новая игра</button>
+</div>
+
+<div class="game-container">
+    <div id="game-board"></div>
+    <p id="game-status"></p>
+</div>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
