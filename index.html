@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,10 @@
 <h2>Игра Сапер</h2>
 
 <div class="menu">
-    <button id="view-past-games" onclick="loadPastGames()">Просмотр прошлых игр</button>
-    <button id="clear-db" onclick="clearDatabase()">Очистить базу данных</button>
-    <ul id="game-list"></ul>
+    <button id="view-past-games">Просмотр прошлых игр</button>
+    <button id="clear-db" >Очистить базу данных</button>
+    <button id="help">Помощь</button>
+    <ul id="game-list" class="game-list"></ul>
 </div>
 
 <div class="settings">
@@ -31,6 +32,36 @@
     <p id="game-status"></p>
 </div>
 
-<script src="scripts/main.js"></script>
+<div id="replay-container" style="display: none;">
+    <h3>Повтор игры</h3>
+    <ul id="replay-list"></ul>
+    <button id="close-replay">Закрыть</button>
+</div>
+
+<div id="help-container" style="display: none;" class="helper">
+    <h3>Справка</h3>
+    <p>
+        <strong>Доступные функции:</strong><br>
+        - <em>Новая игра:</em> Позволяет начать новую игру с заданными параметрами (ширина, высота и количество мин).<br>
+        - <em>Просмотр прошлых игр:</em> Открывает список всех сохранённых игр. Чтобы посмотреть реплей конкретной игры, нажмите на кнопку <strong>"Просмотр прошлых игр"</strong> и выберите интересующую игру из списка.<br>
+        - <em>Повтор игры (Replay):</em> Показывает пошаговую историю выбранной игры, включая информацию о каждом ходе (координаты и результат).<br>
+        - <em>Очистка базы данных:</em> Удаляет все сохранённые игры из базы данных.<br>
+    </p>
+    <p>
+        <strong>Как играть:</strong><br>
+        1. Введите ваше имя в поле "Имя игрока".<br>
+        2. Установите параметры игры (размер поля и количество мин).<br>
+        3. Нажмите кнопку "Новая игра", чтобы начать новую игру.<br>
+        4. Щёлкайте по ячейкам на игровом поле, чтобы открыть их. Если вы откроете ячейку с миной, игра закончится.<br>
+        5. Цель игры — открыть все ячейки без мин.<br>
+    </p>
+    <button id="close-help">Закрыть</button>
+</div>
+
+
+<script src="https://unpkg.com/idb@7.0.0/build/umd.js"></script>
+<script type="module" src="./scripts/game.js"></script>
+<script type="module" src="./scripts/dataBase.js"></script>
 </body>
 </html>
+
